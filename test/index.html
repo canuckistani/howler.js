@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Howler simple test.</title>
+</head>
+
+<body>
+
+<input type="button" id="ctrl-btn" value="Play">
+
+<script type="text/javascript" src="../howler.js"></script>
+<script type="text/javascript">
+
+var sound = new Howl({
+  urls: ['sound.mp3', 'sound.ogg', 'sound.wav'],
+  autoplay: true,
+  loop: true,
+  volume: 0.5,
+  onend: function() {
+    console.log('Finished!');
+  }
+});
+
+
+</script>
+</body>
+</html> 
