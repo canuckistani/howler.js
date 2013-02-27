@@ -10,18 +10,34 @@
 <input type="button" id="ctrl-btn" value="Play">
 
 <script type="text/javascript" src="../howler.js"></script>
+<script type="text/javascript" src="http://zeptojs.com/zepto.min.js"></script>
 <script type="text/javascript">
 
 var sound = new Howl({
-  urls: ['sound.mp3', 'sound.ogg', 'sound.wav'],
-  autoplay: true,
+  urls: ['sound.mp3', 'sound.ogg'],
+  autoplay: false,
   loop: true,
-  volume: 0.5,
+  volume: 0.7,
   onend: function() {
     console.log('Finished!');
   }
 });
 
+var playing = false;
+
+$('#ctrl-btn').click(function() {
+    console.log('in click handler');
+    if (!playing) {
+        sound.play();
+        playing = true;
+        $('#ctrl-btn').val("Stop");
+    }
+    else {
+        sound.stop();
+        playing = false;
+        $('#ctrl-btn').val("Play");
+    }
+});
 
 </script>
 </body>
